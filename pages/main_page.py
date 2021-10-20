@@ -1,3 +1,5 @@
+import time
+
 from selenium.common.exceptions import NoSuchElementException
 from .locators import MainPageLocators
 from .base_page import BasePage
@@ -7,9 +9,11 @@ from selenium.webdriver.common.by import By
 class MainPage(BasePage):
     def to_go_login_page(self):
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
-        # login_link = self.browser.find_element_by_css_selector("#login_link")
         login_link.click()
         # return LoginPage(url=self.browser.current_url, browser=self.browser)
+        alert =self.browser.switch_to.alert
+        alert.accept()
+
 
 
 
