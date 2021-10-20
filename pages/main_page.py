@@ -1,6 +1,7 @@
 from selenium.common.exceptions import NoSuchElementException
 from .locators import MainPageLocators
 from .base_page import BasePage
+from .login_page import LoginPage
 from selenium.webdriver.common.by import By
 
 class MainPage(BasePage):
@@ -8,6 +9,7 @@ class MainPage(BasePage):
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         # login_link = self.browser.find_element_by_css_selector("#login_link")
         login_link.click()
+        # return LoginPage(url=self.browser.current_url, browser=self.browser)
 
 
 
