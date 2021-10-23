@@ -12,6 +12,7 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
+        print(self.browser.current_url)
         self.browser.implicitly_wait(self.timeout)
 
     def solve_quiz_and_get_code(self):
