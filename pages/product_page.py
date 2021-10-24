@@ -9,10 +9,14 @@ from selenium.webdriver.common.by import By
 
 class ProductPage(BasePage):
     def should_be_product_page(self):
+        self.should_not_be_message_good_addition_after_page_open()#
+
         self.should_be_add_button()
-        self.should_not_be_success_message()
         self.add_product_to_basket()
         self.solve_quiz_and_get_code()
+
+        self.should_not_be_message_good_addition_after_adding_product_to_basket()#
+        self.should_not_be_success_message_disappeared_after_adding_product_to_basket()#
 
         self.should_be_message_good_addition()
         self.get_message_good_addition()
@@ -80,8 +84,15 @@ class ProductPage(BasePage):
     def should_be_equal_prices(self):
         assert self.get_message_price_basket()==self.get_card_price(),'The product prices do not equal !'
 
-    def should_not_be_success_message(self):
+    def should_not_be_success_message_disappeared_after_adding_product_to_basket(self):
         assert self.is_disappeared(*MainPageLocators.MESSAGE_EXIST_GOOD_ADDION),\
             "Success message is presented and don't dissapeared, but should not be finally"
+
+    def should_not_be_message_good_addition_after_adding_product_to_basket(self):
+        assert self.is_not_element_present(*MainPageLocators.MESSAGE_EXIST_GOOD_ADDION),\
+            "Success message is presented, but should not be at all"
+
+    def should_not_be_message_good_addition_after_page_open(self):
+        assert self.is_not_element_present(*MainPageLocators.MESSAGE_EXIST_GOOD_ADDION)
 
 
