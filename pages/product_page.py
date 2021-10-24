@@ -1,7 +1,7 @@
 import time
 
 from selenium.common.exceptions import NoSuchElementException
-from .locators import MainPageLocators
+from .locators import MainPageLocators, BasePageLocators
 from .base_page import BasePage
 from .login_page import LoginPage
 from selenium.webdriver.common.by import By
@@ -9,14 +9,14 @@ from selenium.webdriver.common.by import By
 
 class ProductPage(BasePage):
     def should_be_product_page(self):
-        self.should_not_be_message_good_addition_after_page_open()#
+        # self.should_not_be_message_good_addition_after_page_open()#
 
         self.should_be_add_button()
         self.add_product_to_basket()
         self.solve_quiz_and_get_code()
 
-        self.should_not_be_message_good_addition_after_adding_product_to_basket()#
-        self.should_not_be_success_message_disappeared_after_adding_product_to_basket()#
+        # self.should_not_be_message_good_addition_after_adding_product_to_basket()#
+        # self.should_not_be_success_message_disappeared_after_adding_product_to_basket()#
 
         self.should_be_message_good_addition()
         self.get_message_good_addition()
@@ -30,12 +30,12 @@ class ProductPage(BasePage):
         self.should_be_equal_prices()
 
 
-    def is_present_element(self, how, what):
-        try:
-            self.browser.find_element(how, what)
-        except NoSuchElementException:
-            return False
-        return True
+    # def is_present_element(self, how, what):
+    #     try:
+    #         self.browser.find_element(how, what)
+    #     except NoSuchElementException:
+    #         return False
+    #     return True
 
     def should_be_add_button(self):
         assert self.is_present_element(*MainPageLocators.ADD_GOOD), \
