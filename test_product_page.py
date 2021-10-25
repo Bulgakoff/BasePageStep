@@ -71,3 +71,13 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     br_page_product.open()
     br_page_product.should_be_login_link()
 
+"""
+--------------->Гость открывает страницу товара
+--------------->Переходит в корзину по кнопке в шапке 
+--------------->жидаем, что в корзине нет товаров
+--------------->Ожидаем, что есть текст о том что корзина пуста 
+"""
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    ...
+
+

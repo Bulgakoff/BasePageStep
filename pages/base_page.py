@@ -65,3 +65,7 @@ class BasePage():
     def should_be_login_link(self):
         print('should_be_login_link go from Base')
         assert self.is_present_element(*BasePageLocators.LOGIN_LINK), 'LOGIN_LINK element not found'
+
+    def should_be_login_basket_link(self):
+        print('should_be_login_baket_link go from Base')
+        assert self.is_present_element(*MainPageLocators.BASKET_LINK),'BASKET_LINK element not found'
