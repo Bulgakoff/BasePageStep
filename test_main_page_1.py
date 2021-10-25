@@ -16,6 +16,6 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     login_link = "http://selenium1py.pythonanywhere.com/en-gb/"
     brow_page = BasketPage(login_link, browser)
     brow_page.open()
-    brow_page.should_be_basket_page()
+    brow_page.should_be_basket_page_1()
 
 

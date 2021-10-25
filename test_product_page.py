@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import time
 
 import pytest
@@ -5,36 +6,43 @@ import pytest
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
 from .pages.base_page import BasePage
+from .pages.basket_page import BasketPage
 from .pages.product_page import ProductPage
 
 
-# @pytest.mark.parametrize('login_link',['0','1','2','3','4','5','6', pytest.param('7',marks=pytest.mark.xfail),'8','9'])
-# def test_guest_can_add_product_to_basket(browser, login_link):
-# def test_guest_can_add_product_to_basket(browser):
-# #     login_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
-# #     login_link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{login_link}"
-#     login_link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-#     # login_link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209"
-#     brow_page_product = ProductPage(login_link, browser)
-#     brow_page_product.open()
-#     brow_page_product.should_be_product_page()
-# ...
-# @pytest.mark.xfail
-# def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
-#     # *ŒÚÍ˚‚‡ÂÏ ÒÚ‡ÌËˆÛ ÚÓ‚‡‡
-#     # *ƒÓ·‡‚ÎˇÂÏ ÚÓ‚‡ ‚ ÍÓÁËÌÛ
-#     # *œÓ‚ÂˇÂÏ, ˜ÚÓ ÌÂÚ ÒÓÓ·˘ÂÌËˇ Ó· ÛÒÔÂıÂ Ò ÔÓÏÓ˘¸˛ is_not_element_present
-#
-#     login_link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-#     brow_page_product = ProductPage(login_link, browser)
-#     brow_page_product.open()
-#     brow_page_product.should_be_add_button()
-#     brow_page_product.add_product_to_basket()
-#     brow_page_product.should_not_be_message_good_addition_after_adding_product_to_basket()
+@pytest.mark.parametrize('login_link',
+                         ['0', '1', '2', '3', '4', '5', '6', pytest.param('7', marks=pytest.mark.xfail), '8', '9'])
+def test_guest_can_add_product_to_basket(browser, login_link):
+    # def test_guest_can_add_product_to_basket(browser):
+    #     login_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    #     login_link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{login_link}"
+    login_link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    # login_link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209"
+    brow_page_product = ProductPage(login_link, browser)
+    brow_page_product.open()
+    brow_page_product.should_be_product_page()
+
+
+...
+
+
+@pytest.mark.xfail
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    # *–û—Ç–∫—Ä—ã–≤–∞–µ–º —Å—Ç—Ä–∞–Ω–∏—Ü—É —Ç–æ–≤–∞—Ä–∞
+    # *–î–æ–±–∞–≤–ª—è–µ–º —Ç–æ–≤–∞—Ä –≤ –∫–æ—Ä–∑–∏–Ω—É
+    # *–ü—Ä–æ–≤–µ—Ä—è–µ–º, —á—Ç–æ –Ω–µ—Ç —Å–æ–æ–±—â–µ–Ω–∏—è –æ–± —É—Å–ø–µ—Ö–µ —Å –ø–æ–º–æ—â—å—é is_not_element_present
+
+    login_link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    brow_page_product = ProductPage(login_link, browser)
+    brow_page_product.open()
+    brow_page_product.should_be_add_button()
+    brow_page_product.add_product_to_basket()
+    brow_page_product.should_not_be_message_good_addition_after_adding_product_to_basket()
+
 
 def test_guest_cant_see_success_message(browser):
-    # *ŒÚÍ˚‚‡ÂÏ ÒÚ‡ÌËˆÛ ÚÓ‚‡‡ (ÚÓÎ¸ÍÓ)
-    # *œÓ‚ÂˇÂÏ, ˜ÚÓ ÌÂÚ ÒÓÓ·˘ÂÌËˇ Ó· ÛÒÔÂıÂ Ò ÔÓÏÓ˘¸˛ is_not_element_present
+    # *–û—Ç–∫—Ä—ã–≤–∞–µ–º —Å—Ç—Ä–∞–Ω–∏—Ü—É —Ç–æ–≤–∞—Ä–∞ (—Ç–æ–ª—å–∫–æ)
+    # *–ü—Ä–æ–≤–µ—Ä—è–µ–º, —á—Ç–æ –Ω–µ—Ç —Å–æ–æ–±—â–µ–Ω–∏—è –æ–± —É—Å–ø–µ—Ö–µ —Å –ø–æ–º–æ—â—å—é is_not_element_present
 
     login_link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
     brow_page_product = ProductPage(login_link, browser)
@@ -44,18 +52,20 @@ def test_guest_cant_see_success_message(browser):
     brow_page_product.should_be_login_link()
 
 
-# @pytest.mark.xfail
-# def test_message_disappeared_after_adding_product_to_basket(browser):
-#     # *ŒÚÍ˚‚‡ÂÏ ÒÚ‡ÌËˆÛ ÚÓ‚‡‡
-#     # *ƒÓ·‡‚ÎˇÂÏ ÚÓ‚‡ ‚ ÍÓÁËÌÛ
-#     # *œÓ‚ÂˇÂÏ, ˜ÚÓ ÌÂÚ ÒÓÓ·˘ÂÌËˇ Ó· ÛÒÔÂıÂ Ò ÔÓÏÓ˘¸˛ is_disappeared
-#     login_link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-#     brow = BasePage(login_link, browser)
-#     brow.open()
-#     page_product = ProductPage(login_link, browser)
-#     page_product.should_be_add_button()
-#     page_product.add_product_to_basket()
-#     page_product.should_not_be_success_message_disappeared_after_adding_product_to_basket()
+@pytest.mark.xfail
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    # *–û—Ç–∫—Ä—ã–≤–∞–µ–º —Å—Ç—Ä–∞–Ω–∏—Ü—É —Ç–æ–≤–∞—Ä–∞
+    # *–î–æ–±–∞–≤–ª—è–µ–º —Ç–æ–≤–∞—Ä –≤ –∫–æ—Ä–∑–∏–Ω—É
+    # *–ü—Ä–æ–≤–µ—Ä—è–µ–º, —á—Ç–æ –Ω–µ—Ç —Å–æ–æ–±—â–µ–Ω–∏—è –æ–± —É—Å–ø–µ—Ö–µ —Å –ø–æ–º–æ—â—å—é is_disappeared
+    login_link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    brow = BasePage(login_link, browser)
+    brow.open()
+    page_product = ProductPage(login_link, browser)
+    page_product.should_be_add_button()
+    page_product.add_product_to_basket()
+    page_product.should_not_be_success_message_disappeared_after_adding_product_to_basket()
+
+
 #
 
 def test_guest_should_see_login_link_on_product_page(browser):
@@ -71,13 +81,17 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     br_page_product.open()
     br_page_product.should_be_login_link()
 
+
 """
---------------->√ÓÒÚ¸ ÓÚÍ˚‚‡ÂÚ ÒÚ‡ÌËˆÛ ÚÓ‚‡‡
---------------->œÂÂıÓ‰ËÚ ‚ ÍÓÁËÌÛ ÔÓ ÍÌÓÔÍÂ ‚ ¯‡ÔÍÂ 
---------------->ÊË‰‡ÂÏ, ˜ÚÓ ‚ ÍÓÁËÌÂ ÌÂÚ ÚÓ‚‡Ó‚
---------------->ŒÊË‰‡ÂÏ, ˜ÚÓ ÂÒÚ¸ ÚÂÍÒÚ Ó ÚÓÏ ˜ÚÓ ÍÓÁËÌ‡ ÔÛÒÚ‡ 
+--------------->–ì–æ—Å—Ç—å –æ—Ç–∫—Ä—ã–≤–∞–µ—Ç —Å—Ç—Ä–∞–Ω–∏—Ü—É —Ç–æ–≤–∞—Ä–∞
+--------------->–ü–µ—Ä–µ—Ö–æ–¥–∏—Ç –≤ –∫–æ—Ä–∑–∏–Ω—É –ø–æ –∫–Ω–æ–ø–∫–µ –≤ —à–∞–ø–∫–µ 
+--------------->–∂–∏–¥–∞–µ–º, —á—Ç–æ –≤ –∫–æ—Ä–∑–∏–Ω–µ –Ω–µ—Ç —Ç–æ–≤–∞—Ä–æ–≤
+--------------->–û–∂–∏–¥–∞–µ–º, —á—Ç–æ –µ—Å—Ç—å —Ç–µ–∫—Å—Ç –æ —Ç–æ–º —á—Ç–æ –∫–æ—Ä–∑–∏–Ω–∞ –ø—É—Å—Ç–∞ 
 """
+
+
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
-    ...
-
-
+    login_link = "http://selenium1py.pythonanywhere.com/en-gb/"
+    brow_page = BasketPage(login_link, browser)
+    brow_page.open()
+    brow_page.should_be_basket_page_1()

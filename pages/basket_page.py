@@ -8,13 +8,15 @@ from selenium.webdriver.common.by import By
 
 
 class BasketPage(BasePage):
-    def should_be_basket_page(self):
+    def should_be_basket_page_1(self):
         self.should_be_login_basket_link()
         self.go_to_basket()
         self.should_not_be_basket_items()
         self.should_be_basket_itemtext()
         self.should_be_basket_itemtext_say_empty()
         self.should_be_equal_empty_text()
+
+
 
     def should_be_login_basket_link(self):
         print('should_be_login_baket_link go from Base')
