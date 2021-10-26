@@ -13,6 +13,7 @@ class ProductPage(BasePage):
 
         self.should_be_add_button()
         self.add_product_to_basket()
+
         self.solve_quiz_and_get_code()
 
         # self.should_not_be_message_good_addition_after_adding_product_to_basket()#
@@ -30,12 +31,6 @@ class ProductPage(BasePage):
         self.should_be_equal_prices()
 
 
-    # def is_present_element(self, how, what):
-    #     try:
-    #         self.browser.find_element(how, what)
-    #     except NoSuchElementException:
-    #         return False
-    #     return True
 
     def should_be_add_button(self):
         assert self.is_present_element(*MainPageLocators.ADD_GOOD), \
