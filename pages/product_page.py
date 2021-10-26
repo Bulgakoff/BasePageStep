@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 
 class ProductPage(BasePage):
     def should_be_product_page(self):
-        # self.should_not_be_message_good_addition_after_page_open()#
+        self.should_not_be_message_good_addition_after_page_open()#
 
         self.should_be_add_button()
         self.add_product_to_basket()
