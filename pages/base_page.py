@@ -14,8 +14,6 @@ class BasePage():
         self.browser = browser
         self.timeout = timeout
 
-
-
     def open(self):
         self.browser.get(self.url)
         print(self.browser.current_url)
@@ -70,7 +68,7 @@ class BasePage():
 
     def should_be_login_basket_link(self):
         print('should_be_login_baket_link go from Base')
-        assert self.is_present_element(*MainPageLocators.BASKET_LINK),'BASKET_LINK element not found'
+        assert self.is_present_element(*MainPageLocators.BASKET_LINK), 'BASKET_LINK element not found'
 
     def should_be_authorized_user(self):
         assert self.is_present_element(*BasePageLocators.USER_ICON), "User icon is not presented," \
